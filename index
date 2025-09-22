@@ -1,0 +1,2320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iKlipa - Turn Your WiFi Into Wealth | South Africa's #1 Freelancer Community</title>
+    <meta name="description" content="Join 3,000+ South Africans earning R15k-R50k+ monthly from home through iKlipa. Free community, real clients, guaranteed results.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs/lib/anime.iife.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #00D4AA;
+            --primary-dark: #00B894;
+            --secondary: #6C5CE7;
+            --accent: #A29BFE;
+            --gold: #FDCB6E;
+            --success: #00B894;
+            --dark: #0D1117;
+            --darker: #010409;
+            --gray: #21262D;
+            --light-gray: #30363D;
+            --text-primary: #F0F6FF;
+            --text-secondary: #8B949E;
+            
+            /* Enhanced spacing system */
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+            
+            /* Enhanced shadows */
+            --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+            
+            /* Enhanced borders */
+            --border-radius-xs: 0.25rem;
+            --border-radius-sm: 0.375rem;
+            --border-radius-md: 0.5rem;
+            --border-radius-lg: 0.75rem;
+            --border-radius-xl: 1rem;
+            --border-radius-2xl: 1.5rem;
+            --border-radius-3xl: 2rem;
+            
+            /* Enhanced transitions */
+            --transition-fast: 150ms ease-in-out;
+            --transition-normal: 300ms ease-in-out;
+            --transition-slow: 500ms ease-in-out;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Enhanced scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--gray);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to bottom, var(--primary-dark), var(--accent));
+        }
+
+        /* Enhanced selection styling */
+        ::selection {
+            background: rgba(0, 212, 170, 0.3);
+            color: var(--text-primary);
+        }
+
+        .font-display {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Enhanced cursor interactions */
+        .cursor-pointer {
+            cursor: pointer;
+        }
+
+        .cursor-not-allowed {
+            cursor: not-allowed;
+        }
+
+        /* Micro-interaction enhancements */
+        .interactive-element {
+            transition: all var(--transition-normal);
+            will-change: transform, box-shadow, filter;
+        }
+
+        .interactive-element:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.05);
+        }
+
+        .interactive-element:active {
+            transform: translateY(0);
+            transition: all var(--transition-fast);
+        }
+
+        .vanta-canvas { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            z-index: 0; 
+        }
+
+        .hero-overlay { 
+            background: linear-gradient(135deg, rgba(13,17,23,0.8) 0%, rgba(1,4,9,0.4) 50%, rgba(13,17,23,0.8) 100%); 
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        .glass-effect { 
+            backdrop-filter: blur(24px) saturate(200%);
+            background: rgba(33, 38, 45, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.125);
+            box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-effect::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+            transition: left 0.8s ease-in-out;
+        }
+
+        .glass-effect:hover::before {
+            left: 100%;
+        }
+
+        .glass-light {
+            backdrop-filter: blur(16px) saturate(150%);
+            background: rgba(48, 54, 61, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            transition: all var(--transition-normal);
+        }
+
+        .glass-light:hover {
+            background: rgba(48, 54, 61, 0.85);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        }
+
+        /* Enhanced gradient effects */
+        .gradient-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gradient-primary::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+            opacity: 0;
+            transition: opacity var(--transition-normal);
+        }
+
+        .gradient-primary:hover::after {
+            opacity: 1;
+        }
+
+        .gradient-secondary {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 70%, var(--accent) 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient-shift 4s ease-in-out infinite;
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Enhanced glow effects */
+        .glow-effect {
+            box-shadow: 0 0 20px rgba(0, 212, 170, 0.4), 0 0 40px rgba(0, 212, 170, 0.2);
+            position: relative;
+        }
+
+        .glow-effect::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent), var(--primary));
+            background-size: 400% 400%;
+            border-radius: inherit;
+            z-index: -1;
+            animation: glow-rotate 8s linear infinite;
+            opacity: 0.6;
+            filter: blur(6px);
+        }
+
+        @keyframes glow-rotate {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .glow-hover:hover {
+            box-shadow: 0 0 30px rgba(0, 212, 170, 0.6), 0 0 60px rgba(0, 212, 170, 0.3);
+            transform: translateY(-3px) scale(1.02);
+            transition: all var(--transition-normal);
+        }
+
+        /* Enhanced Animations with more sophisticated timing */
+        .floating { 
+            animation: floating 8s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg);
+                filter: hue-rotate(0deg);
+            }
+            25% { 
+                transform: translateY(-20px) rotate(1.5deg);
+                filter: hue-rotate(90deg);
+            }
+            50% { 
+                transform: translateY(-15px) rotate(0deg);
+                filter: hue-rotate(180deg);
+            }
+            75% { 
+                transform: translateY(-25px) rotate(-1.5deg);
+                filter: hue-rotate(270deg);
+            }
+        }
+
+        .pulse-glow { 
+            animation: pulse-glow 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { 
+                transform: scale(1); 
+                box-shadow: 0 0 20px rgba(0, 212, 170, 0.4), 0 0 40px rgba(0, 212, 170, 0.2);
+                filter: brightness(1);
+            }
+            50% { 
+                transform: scale(1.08); 
+                box-shadow: 0 0 40px rgba(0, 212, 170, 0.8), 0 0 80px rgba(0, 212, 170, 0.4);
+                filter: brightness(1.2);
+            }
+        }
+
+        /* Enhanced slide animations with stagger */
+        .slide-up {
+            animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(60px);
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+        .stagger-5 { animation-delay: 0.5s; }
+
+        /* Enhanced parallax effects */
+        .parallax-element {
+            will-change: transform;
+            transition: transform 0.1s ease-out;
+        }
+
+        /* Sophisticated hover state system */
+        .hover-lift {
+            transition: all var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .hover-glow {
+            position: relative;
+            transition: all var(--transition-normal);
+        }
+
+        .hover-glow::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: inherit;
+            z-index: -1;
+            opacity: 0;
+            filter: blur(8px);
+            transition: all var(--transition-normal);
+        }
+
+        .hover-glow:hover::after {
+            opacity: 0.4;
+        }
+
+        /* Enhanced button system */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            position: relative;
+            overflow: hidden;
+            transition: all var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0, 212, 170, 0.4), var(--shadow-xl);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-2px);
+            transition: all var(--transition-fast);
+        }
+
+        /* Enhanced loading states */
+        .loading-shimmer {
+            background: linear-gradient(90deg, 
+                rgba(255,255,255,0.05) 0%, 
+                rgba(255,255,255,0.15) 50%, 
+                rgba(255,255,255,0.05) 100%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .loading-spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top: 2px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Enhanced progress indicators */
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            height: 100%;
+            border-radius: inherit;
+            position: relative;
+            overflow: hidden;
+            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: progress-shimmer 2s infinite;
+        }
+
+        @keyframes progress-shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Stats Counter Animation */
+        .stat-number {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+        }
+
+        /* Enhanced Form System */
+        .form-input {
+            background: rgba(48, 54, 61, 0.9);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius-xl);
+            transition: all var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            backdrop-filter: blur(8px);
+            box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+            transition: all var(--transition-normal);
+        }
+
+        .form-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(0, 212, 170, 0.3), var(--shadow-lg);
+            background: rgba(48, 54, 61, 0.95);
+            outline: none;
+            transform: translateY(-1px);
+        }
+
+        .form-input:focus::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+            transform: translateX(4px);
+        }
+
+        /* Form validation states */
+        .form-input.valid {
+            border-color: var(--success);
+            box-shadow: 0 0 15px rgba(0, 184, 148, 0.2);
+        }
+
+        .form-input.valid::after {
+            content: '✓';
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        .form-input.invalid {
+            border-color: #FF6B6B;
+            box-shadow: 0 0 15px rgba(255, 107, 107, 0.2);
+        }
+
+        /* Enhanced input groups */
+        .input-group {
+            position: relative;
+        }
+
+        .input-label {
+            position: absolute;
+            top: 0;
+            left: 16px;
+            background: var(--gray);
+            padding: 0 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            transform: translateY(-50%);
+            transition: all var(--transition-normal);
+            border-radius: var(--border-radius-sm);
+        }
+
+        .input-group:focus-within .input-label {
+            color: var(--primary);
+            transform: translateY(-50%) scale(0.9);
+        }
+
+        /* Enhanced checkbox and radio styles */
+        .custom-checkbox {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--border-radius-sm);
+            background: rgba(48, 54, 61, 0.8);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            position: relative;
+        }
+
+        .custom-checkbox:checked {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .custom-checkbox:checked::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .custom-checkbox:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(0, 212, 170, 0.2);
+        }
+
+        /* Enhanced feature cards with better micro-interactions */
+        .feature-card {
+            transition: all var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            opacity: 0;
+            transition: all var(--transition-normal);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            border-color: rgba(0, 212, 170, 0.3);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 212, 170, 0.2);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Enhanced timeline with better visual hierarchy */
+        .timeline-item {
+            position: relative;
+            padding-left: 4rem;
+            transition: all var(--transition-normal);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 1.5rem;
+            top: 0;
+            bottom: -3rem;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            opacity: 0.6;
+        }
+
+        .timeline-item:last-child::before {
+            background: linear-gradient(to bottom, var(--primary), transparent);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 0.75rem;
+            top: 0;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 4px solid var(--dark);
+            z-index: 2;
+            transition: all var(--transition-normal);
+            box-shadow: 0 0 15px rgba(0, 212, 170, 0.4);
+        }
+
+        .timeline-item:hover .timeline-dot {
+            transform: scale(1.2);
+            box-shadow: 0 0 25px rgba(0, 212, 170, 0.6);
+        }
+
+        /* Enhanced testimonial cards with better typography */
+        .testimonial {
+            position: relative;
+            overflow: hidden;
+            border-left: 4px solid var(--primary);
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: -15px;
+            left: 30px;
+            font-size: 5rem;
+            color: var(--primary);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        .testimonial-quote {
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: rgba(240, 246, 255, 0.9);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Enhanced mobile responsiveness */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+                line-height: 1.1;
+                margin-bottom: 1.5rem;
+            }
+
+            .floating-elements {
+                display: none;
+            }
+
+            .feature-card:hover {
+                transform: translateY(-6px) scale(1.02);
+            }
+
+            .timeline-item {
+                padding-left: 3rem;
+            }
+
+            .timeline-item::before {
+                left: 1rem;
+            }
+
+            .timeline-dot {
+                left: 0.25rem;
+            }
+
+            .form-input {
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+        }
+
+        /* Enhanced accessibility features */
+        .visually-hidden {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            padding: 0 !important;
+            margin: -1px !important;
+            overflow: hidden !important;
+            clip: rect(0, 0, 0, 0) !important;
+            white-space: nowrap !important;
+            border: 0 !important;
+        }
+
+        .focus-visible:focus {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        /* Reduced motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .floating {
+                animation: none;
+            }
+
+            .pulse-glow {
+                animation: none;
+            }
+        }
+
+        /* Enhanced scroll indicators */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 9999;
+            backdrop-filter: blur(8px);
+        }
+
+        .scroll-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            width: 0%;
+            transition: width 0.1s ease-out;
+            position: relative;
+        }
+
+        .scroll-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 20px;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6));
+            border-radius: 0 4px 4px 0;
+        }
+
+        /* Enhanced notification system */
+        .notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: var(--gray);
+            border: 1px solid rgba(0, 212, 170, 0.3);
+            border-radius: var(--border-radius-xl);
+            padding: 1rem 1.5rem;
+            box-shadow: var(--shadow-xl);
+            backdrop-filter: blur(12px);
+            z-index: 9998;
+            transform: translateX(400px);
+            transition: all var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification.success {
+            border-color: rgba(0, 184, 148, 0.5);
+            background: rgba(0, 184, 148, 0.1);
+        }
+
+        .notification.error {
+            border-color: rgba(255, 107, 107, 0.5);
+            background: rgba(255, 107, 107, 0.1);
+        }
+
+        /* Enhanced loading overlay */
+        .loading-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(13, 17, 23, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-normal);
+        }
+
+        .loading-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .loading-content {
+            text-align: center;
+            color: var(--text-primary);
+        }
+
+        .loading-content .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border-width: 4px;
+            margin: 0 auto 1rem;
+        }
+
+        /* Scroll Indicators */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 9999;
+        }
+
+        .scroll-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        /* Loading States */
+        .loading-skeleton {
+            background: linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.1) 100%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+        }
+
+        @keyframes skeleton-loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Success States */
+        .success-ping {
+            animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+
+        @keyframes ping {
+            75%, 100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-indicator">
+        <div class="scroll-progress" id="scroll-progress"></div>
+    </div>
+
+    <!-- Enhanced Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-effect transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3 cursor-pointer">
+                    <div class="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center glow-effect">
+                        <i data-feather="wifi" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <div>
+                        <div class="text-xl font-bold font-display">iKlipa</div>
+                        <div class="text-xs text-gray-400">South Africa's #1 Freelancer Community</div>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#community" class="hover:text-blue-400 transition-colors relative group">
+                        Community
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#success" class="hover:text-green-400 transition-colors relative group">
+                        Success Stories
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-green-400 transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#resources" class="hover:text-purple-400 transition-colors relative group">
+                        Resources
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-400 transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#about" class="hover:text-yellow-400 transition-colors relative group">
+                        How It Works
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all group-hover:w-full"></span>
+                    </a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="flex items-center space-x-4">
+                    <div class="hidden md:block text-sm">
+                        <div class="text-green-400 font-semibold">3,247 Members</div>
+                        <div class="text-xs text-gray-400">Earning together</div>
+                    </div>
+                    <button class="btn-primary px-6 py-2.5 rounded-full font-semibold text-white relative overflow-hidden glow-hover transition-all duration-300">
+                        Join Free Today
+                    </button>
+                    <button class="lg:hidden glass-light p-2 rounded-lg" id="mobile-menu-btn">
+                        <i data-feather="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Enhanced Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <div id="vanta-bg" class="absolute inset-0"></div>
+        <div class="hero-overlay"></div>
+        
+        <!-- Floating Background Elements -->
+        <div class="floating-elements absolute inset-0 pointer-events-none">
+            <div class="absolute top-20 left-10 floating">
+                <div class="glass-light rounded-2xl p-4 opacity-80">
+                    <i data-feather="trending-up" class="w-8 h-8 text-green-400"></i>
+                </div>
+            </div>
+            <div class="absolute top-32 right-20 floating" style="animation-delay: 1s;">
+                <div class="glass-light rounded-full p-3 opacity-70">
+                    <i data-feather="dollar-sign" class="w-6 h-6 text-yellow-400"></i>
+                </div>
+            </div>
+            <div class="absolute bottom-32 left-20 floating" style="animation-delay: 2s;">
+                <div class="glass-light rounded-xl p-3 opacity-75">
+                    <i data-feather="users" class="w-7 h-7 text-blue-400"></i>
+                </div>
+            </div>
+            <div class="absolute bottom-40 right-10 floating" style="animation-delay: 0.5s;">
+                <div class="glass-light rounded-2xl p-4 opacity-80">
+                    <i data-feather="globe" class="w-8 h-8 text-purple-400"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center max-w-5xl mx-auto" data-aos="fade-up">
+                <!-- Hero Badge -->
+                <div class="inline-flex items-center px-4 py-2 glass-effect rounded-full mb-6" data-aos="fade-down" data-aos-delay="100">
+                    <div class="w-2 h-2 bg-green-400 rounded-full mr-2 pulse-glow"></div>
+                    <span class="text-sm">🔥 3,247+ South Africans already earning</span>
+                </div>
+
+                <!-- Main Headline -->
+                <h1 class="hero-title text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight font-display" data-aos="fade-up" data-aos-delay="200">
+                    Turn Your <span class="gradient-text">WiFi Into Wealth</span>
+                </h1>
+                
+                <!-- Subheadline -->
+                <p class="text-xl md:text-2xl lg:text-3xl mb-8 text-gray-300 max-w-4xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="300">
+                    Join South Africa's fastest-growing freelancer community. Earn R15k-R50k+ monthly from home with <span class="text-green-400 font-semibold">guaranteed</span> results.
+                </p>
+                
+                <!-- Live Stats Bar -->
+                <div class="glass-effect rounded-2xl p-6 mb-8 max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="400">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                        <div>
+                            <div class="text-2xl md:text-3xl font-bold gradient-text" id="members-count">3,247</div>
+                            <div class="text-sm text-gray-400">Active Members</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl md:text-3xl font-bold text-green-400" id="earnings-total">R4.2M+</div>
+                            <div class="text-sm text-gray-400">Total Earned</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl md:text-3xl font-bold text-blue-400" id="projects-count">1,247</div>
+                            <div class="text-sm text-gray-400">Projects Done</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl md:text-3xl font-bold text-purple-400">98%</div>
+                            <div class="text-sm text-gray-400">Success Rate</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Testimonial Carousel -->
+                <div class="relative max-w-3xl mx-auto mb-8 rounded-3xl overflow-hidden glass-effect" data-aos="fade-up" data-aos-delay="500">
+                    <div class="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center relative">
+                        <div class="text-center">
+                            <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4 pulse-glow cursor-pointer hover:scale-110 transition-transform">
+                                <i data-feather="play" class="w-10 h-10 text-white ml-1"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">Watch Real Success Stories</h3>
+                            <p class="text-gray-400">See how Sarah went from R0 to R34k/month in 4 months</p>
+                        </div>
+                        <!-- Thumbnail overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <div class="flex items-center justify-between text-sm">
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center text-xs font-bold text-black">S</div>
+                                    <span>Sarah M. - Content Writer, Cape Town</span>
+                                </div>
+                                <span class="bg-green-400 text-black px-2 py-1 rounded-full text-xs font-bold">+R34k/month</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8" data-aos="fade-up" data-aos-delay="600">
+                    <button class="btn-primary px-8 py-4 rounded-full font-bold text-lg text-white relative overflow-hidden">
+                        🚀 Start Earning Today - Completely Free
+                    </button>
+                    <button class="glass-light border-2 border-white/20 px-8 py-4 rounded-full font-semibold text-lg hover:border-white/40 transition-all duration-300 hover:bg-white/10">
+                        📊 See Income Calculator
+                    </button>
+                </div>
+                
+                <!-- Live Activity Ticker -->
+                <div class="glass-effect rounded-xl p-4 ticker-wrap max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="700">
+                    <div class="flex items-center mb-2">
+                        <div class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
+                        <span class="text-sm text-gray-400 font-medium">Live Community Activity:</span>
+                    </div>
+                    <div class="ticker text-green-400 font-medium">
+                        🎉 Thabo just earned R3,200 for a logo design • 💰 Sarah completed her 15th project this month • 🚀 Mike hit R47k monthly income • ✨ Nomsa landed an R8k client • 💎 James got hired at R550/hour • 🔥 Keabetswe just joined from Pretoria • 📈 Community earned R127k this week •
+                    </div>
+                </div>
+
+                <!-- Trust Indicators -->
+                <div class="mt-12 flex flex-wrap justify-center items-center gap-8 opacity-70" data-aos="fade-up" data-aos-delay="800">
+                    <div class="flex items-center space-x-3 bg-white/5 px-4 py-2 rounded-full border border-white/10">
+                        <i data-feather="shield" class="w-5 h-5 text-green-400"></i>
+                        <span class="text-sm font-medium">100% Free to Join</span>
+                    </div>
+                    <div class="flex items-center space-x-3 bg-white/5 px-4 py-2 rounded-full border border-white/10">
+                        <i data-feather="check-circle" class="w-5 h-5 text-blue-400"></i>
+                        <span class="text-sm font-medium">No Experience Required</span>
+                    </div>
+                    <div class="flex items-center space-x-3 bg-white/5 px-4 py-2 rounded-full border border-white/10">
+                        <i data-feather="clock" class="w-5 h-5 text-purple-400"></i>
+                        <span class="text-sm font-medium">Start Earning in 48 Hours</span>
+                    </div>
+                    <div class="flex items-center space-x-3 bg-white/5 px-4 py-2 rounded-full border border-white/10">
+                        <i data-feather="award" class="w-5 h-5 text-yellow-400"></i>
+                        <span class="text-sm font-medium">98% Success Rate</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Social Proof Section -->
+    <section class="py-20 bg-gray-900 relative">
+        <div class="container mx-auto px-4">
+            <!-- Section Header -->
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold font-display mb-4">Trusted by Thousands Across South Africa</h2>
+                <p class="text-xl text-gray-400">Real people, real results, real community</p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Interactive Member Map -->
+                <div class="glass-effect rounded-3xl p-8 feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-xl font-semibold">Live Member Locations</h3>
+                        <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                    </div>
+                    <div class="aspect-square bg-gray-800 rounded-2xl flex items-center justify-center mb-4 relative overflow-hidden">
+                        <i data-feather="map-pin" class="w-16 h-16 text-red-400 z-10"></i>
+                        <!-- Animated dots representing member locations -->
+                        <div class="absolute top-1/4 left-1/3 w-2 h-2 bg-blue-400 rounded-full animate-ping"></div>
+                        <div class="absolute top-1/2 right-1/4 w-2 h-2 bg-green-400 rounded-full animate-ping" style="animation-delay: 1s;"></div>
+                        <div class="absolute bottom-1/3 left-1/2 w-2 h-2 bg-purple-400 rounded-full animate-ping" style="animation-delay: 2s;"></div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div>
+                            <div class="text-blue-400 font-bold">847</div>
+                            <div class="text-gray-400">Cape Town</div>
+                        </div>
+                        <div>
+                            <div class="text-green-400 font-bold">1,124</div>
+                            <div class="text-gray-400">Johannesburg</div>
+                        </div>
+                        <div>
+                            <div class="text-purple-400 font-bold">532</div>
+                            <div class="text-gray-400">Durban</div>
+                        </div>
+                        <div>
+                            <div class="text-yellow-400 font-bold">744</div>
+                            <div class="text-gray-400">Other Cities</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Live Earnings Counter -->
+                <div class="glass-effect rounded-3xl p-8 feature-card text-center" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-semibold mb-6">Community Earnings</h3>
+                    <div class="mb-6">
+                        <div class="text-4xl md:text-5xl font-black gradient-text mb-2" id="live-earnings">R4,234,567</div>
+                        <div class="text-sm text-gray-400 mb-4">Total earned this year</div>
+                        <div class="text-lg font-semibold text-green-400">+R24,350 today</div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 pt-4 border-t border-gray-700">
+                        <div>
+                            <div class="text-xl font-bold text-green-400">R18,500</div>
+                            <div class="text-xs text-gray-400">Avg Monthly</div>
+                        </div>
+                        <div>
+                            <div class="text-xl font-bold text-blue-400">R485</div>
+                            <div class="text-xs text-gray-400">Avg Hourly</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Success Stories Carousel -->
+                <div class="glass-effect rounded-3xl p-8 feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-xl font-semibold mb-6">Latest Success Stories</h3>
+                    <div id="success-carousel" class="space-y-4">
+                        <div class="success-story active">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" class="w-12 h-12 rounded-full border-2 border-green-400">
+                                <div>
+                                    <div class="font-semibold">Thabo M.</div>
+                                    <div class="text-sm text-gray-400">Graphic Designer</div>
+                                </div>
+                                <div class="ml-auto bg-green-400 text-black px-2 py-1 rounded-full text-xs font-bold">+R28k</div>
+                            </div>
+                            <p class="text-sm text-gray-300">"From unemployed to earning more than my corporate friends. iKlipa changed everything!"</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-center mt-6 space-x-2">
+                        <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
+                        <div class="w-2 h-2 bg-gray-600 rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Value Proposition -->
+    <section class="py-20 relative" id="community">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold font-display mb-6">Why iKlipa Works</h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">Everything you need to build a thriving freelance career, all in one community</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Learn & Earn -->
+                <div class="glass-effect rounded-3xl p-8 text-center feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-6 glow-effect">
+                        <i data-feather="book-open" class="w-10 h-10 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4 font-display">Learn While You Earn</h3>
+                    <p class="text-gray-400 mb-6">Skip the theory. Start earning from day one with real client projects while building your skills and portfolio.</p>
+                    <div class="bg-green-400/10 border border-green-400/30 rounded-xl p-4">
+                        <div class="text-green-400 font-bold text-lg">Average first month: R5,500</div>
+                        <div class="text-sm text-gray-400">Based on active members</div>
+                    </div>
+                </div>
+                
+                <!-- Community Support -->
+                <div class="glass-effect rounded-3xl p-8 text-center feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 gradient-secondary rounded-2xl flex items-center justify-center mx-auto mb-6 glow-effect">
+                        <i data-feather="users" class="w-10 h-10 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4 font-display">Never Freelance Alone</h3>
+                    <p class="text-gray-400 mb-6">Join 3,000+ supportive freelancers, mentors, and industry experts who want to see you succeed.</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between text-sm">
+                            <span>Daily Support</span>
+                            <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span>Expert Mentors</span>
+                            <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span>Peer Reviews</span>
+                            <div class="w-2 h-2 bg-purple-400 rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Global Opportunities -->
+                <div class="glass-effect rounded-3xl p-8 text-center feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-20 h-20 bg-gradient-to-r from-green-400 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6 glow-effect">
+                        <i data-feather="globe" class="w-10 h-10 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4 font-display">Global Client Network</h3>
+                    <p class="text-gray-400 mb-6">Access premium international clients paying first-world rates. We handle the business - you focus on great work.</p>
+                    <div class="grid grid-cols-3 gap-2 text-xs">
+                        <div class="bg-blue-400/10 p-2 rounded-lg">
+                            <div class="font-bold text-blue-400">USD</div>
+                        </div>
+                        <div class="bg-green-400/10 p-2 rounded-lg">
+                            <div class="font-bold text-green-400">EUR</div>
+                        </div>
+                        <div class="bg-purple-400/10 p-2 rounded-lg">
+                            <div class="font-bold text-purple-400">GBP</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works - Timeline -->
+    <section class="py-20 bg-gray-900" id="about">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold font-display mb-6">Your Path to Financial Freedom</h2>
+                <p class="text-xl text-gray-400">4 simple steps to start earning from home</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-12">
+                    <!-- Step 1 -->
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-effect rounded-2xl p-8">
+                            <div class="flex items-start space-x-6">
+                                <div class="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center flex-shrink-0">
+                                    <span class="text-2xl font-bold text-white">1</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-semibold mb-4">Apply & Get Accepted</h3>
+                                    <p class="text-gray-400 mb-4">Complete our simple application. We'll assess your skills and match you with perfect opportunities.</p>
+                                    <div class="flex items-center space-x-4 text-sm">
+                                        <div class="flex items-center space-x-2">
+                                            <i data-feather="clock" class="w-4 h-4 text-green-400"></i>
+                                            <span>Takes 3 minutes</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <i data-feather="check" class="w-4 h-4 text-blue-400"></i>
+                                            <span>95% acceptance rate</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-effect rounded-2xl p-8">
+                            <div class="flex items-start space-x-6">
+                                <div class="w-16 h-16 gradient-secondary rounded-2xl flex items-center justify-center flex-shrink-0">
+                                    <span class="text-2xl font-bold text-white">2</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-semibold mb-4">Get Your First Paid Project</h3>
+                                    <p class="text-gray-400 mb-4">Start with beginner-friendly projects from our verified client network. Full support included.</p>
+                                    <div class="grid grid-cols-2 gap-4 mt-4">
+                                        <div class="bg-green-400/10 p-3 rounded-lg">
+                                            <div class="text-green-400 font-bold">R1,500-R5,000</div>
+                                            <div class="text-xs text-gray-400">Typical first project</div>
+                                        </div>
+                                        <div class="bg-blue-400/10 p-3 rounded-lg">
+                                            <div class="text-blue-400 font-bold">48 hours</div>
+                                            <div class="text-xs text-gray-400">Average start time</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-effect rounded-2xl p-8">
+                            <div class="flex items-start space-x-6">
+                                <div class="w-16 h-16 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                    <span class="text-2xl font-bold text-white">3</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-semibold mb-4">Scale Your Skills & Income</h3>
+                                    <p class="text-gray-400 mb-4">Build portfolio, develop expertise, access premium clients and higher-paying opportunities.</p>
+                                    <div class="space-y-2">
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm">Month 1-2</span>
+                                            <span class="text-green-400 font-bold">R5k-R15k</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm">Month 3-6</span>
+                                            <span class="text-blue-400 font-bold">R15k-R35k</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-sm">Month 6+</span>
+                                            <span class="text-purple-400 font-bold">R35k+</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-effect rounded-2xl p-8">
+                            <div class="flex items-start space-x-6">
+                                <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                    <span class="text-2xl font-bold text-white">4</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-semibold mb-4">Achieve Complete Freedom</h3>
+                                    <p class="text-gray-400 mb-4">Reach sustainable full-time income, work on your terms, and build the life you want.</p>
+                                    <div class="bg-gradient-to-r from-purple-500/20 to-pink-500/20 p-4 rounded-xl border border-purple-500/30">
+                                        <div class="text-center">
+                                            <div class="text-2xl font-bold gradient-text mb-1">Financial Independence</div>
+                                            <div class="text-sm text-gray-400">Work from anywhere, anytime</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Success Stories -->
+    <section class="py-20" id="success">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold font-display mb-6">Real People, Life-Changing Results</h2>
+                <p class="text-xl text-gray-400">See how ordinary South Africans built extraordinary freelancing careers</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Success Story 1 -->
+                <div class="glass-effect rounded-3xl p-8 feature-card relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute top-0 right-0 bg-green-400 text-black px-3 py-1 rounded-bl-2xl text-sm font-bold">
+                        +R34k/month
+                    </div>
+                    <div class="flex items-center space-x-4 mb-6 mt-4">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b25bd76b?w=150&h=150&fit=crop&crop=face" class="w-16 h-16 rounded-full border-2 border-green-400">
+                        <div>
+                            <h4 class="text-xl font-semibold">Thabo Mthembu</h4>
+                            <p class="text-gray-400">Graphic Designer • Johannesburg</p>
+                        </div>
+                    </div>
+                    <blockquote class="text-gray-300 mb-6 italic">
+                        "I was unemployed for 10 months after university. iKlipa didn't just give me work - they gave me a career. I now earn more than my friends in corporate jobs and work from anywhere."
+                    </blockquote>
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div>
+                            <div class="text-green-400 font-bold">5 months</div>
+                            <div class="text-gray-400">Time to R34k</div>
+                        </div>
+                        <div>
+                            <div class="text-blue-400 font-bold">47 projects</div>
+                            <div class="text-gray-400">Completed</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Success Story 2 -->
+                <div class="glass-effect rounded-3xl p-8 feature-card relative overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 right-0 bg-blue-400 text-white px-3 py-1 rounded-bl-2xl text-sm font-bold">
+                        +R47k/month
+                    </div>
+                    <div class="flex items-center space-x-4 mb-6 mt-4">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face" class="w-16 h-16 rounded-full border-2 border-blue-400">
+                        <div>
+                            <h4 class="text-xl font-semibold">Sarah Nkomo</h4>
+                            <p class="text-gray-400">Content Strategist • Cape Town</p>
+                        </div>
+                    </div>
+                    <blockquote class="text-gray-300 mb-6 italic">
+                        "Started while working my 9-5. Within 4 months, I was earning enough to go full-time freelance. The community support and real projects made all the difference."
+                    </blockquote>
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div>
+                            <div class="text-blue-400 font-bold">4 months</div>
+                            <div class="text-gray-400">To full-time</div>
+                        </div>
+                        <div>
+                            <div class="text-purple-400 font-bold">12 clients</div>
+                            <div class="text-gray-400">Regular clients</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Success Story 3 -->
+                <div class="glass-effect rounded-3xl p-8 feature-card relative overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute top-0 right-0 bg-purple-400 text-white px-3 py-1 rounded-bl-2xl text-sm font-bold">
+                        +R68k/month
+                    </div>
+                    <div class="flex items-center space-x-4 mb-6 mt-4">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" class="w-16 h-16 rounded-full border-2 border-purple-400">
+                        <div>
+                            <h4 class="text-xl font-semibold">Michael Botha</h4>
+                            <p class="text-gray-400">Web Developer • Durban</p>
+                        </div>
+                    </div>
+                    <blockquote class="text-gray-300 mb-6 italic">
+                        "The progression from simple tasks to complex projects was perfect. I built my portfolio with real client work and now have more opportunities than I can handle."
+                    </blockquote>
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div>
+                            <div class="text-purple-400 font-bold">8 months</div>
+                            <div class="text-gray-400">To R68k</div>
+                        </div>
+                        <div>
+                            <div class="text-yellow-400 font-bold">R850/hr</div>
+                            <div class="text-gray-400">Top rate</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Stats -->
+            <div class="mt-16 grid md:grid-cols-4 gap-6" data-aos="fade-up">
+                <div class="text-center">
+                    <div class="text-3xl font-bold gradient-text mb-2">98%</div>
+                    <div class="text-gray-400">Success Rate</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-green-400 mb-2">R18.5k</div>
+                    <div class="text-gray-400">Avg Monthly Income</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-blue-400 mb-2">4.2</div>
+                    <div class="text-gray-400">Months to Full-Time</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-purple-400 mb-2">3,247</div>
+                    <div class="text-gray-400">Success Stories</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Application Form -->
+    <section class="py-20 bg-gray-900 relative" id="apply">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto" data-aos="fade-up">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl md:text-5xl font-bold font-display mb-6">Join iKlipa Today</h2>
+                    <p class="text-xl text-gray-400 mb-8">Start your journey to financial freedom. Free to join, life-changing results.</p>
+                    
+                    <!-- Progress Indicator -->
+                    <div class="mb-8">
+                        <div class="flex justify-between mb-4 text-sm">
+                            <span class="text-gray-400">Quick Application</span>
+                            <span class="text-gray-400">3 minutes</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2">
+                            <div class="gradient-primary h-2 rounded-full transition-all duration-300" style="width: 0%" id="form-progress"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-effect rounded-3xl p-8 md:p-12">
+                    <div class="bg-green-400/10 border border-green-400/30 rounded-xl p-4 mb-8 hidden" id="form-success">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i data-feather="check" class="w-5 h-5 text-black"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-green-400">Application Submitted Successfully!</div>
+                                <div class="text-sm text-gray-400">We'll review your application and get back to you within 24 hours.</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form id="application-form" class="space-y-6">
+                        <!-- Personal Information -->
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="fullName" class="block text-sm font-semibold mb-2">Full Name *</label>
+                                <input type="text" id="fullName" name="fullName" required 
+                                       class="form-input w-full px-4 py-3 rounded-xl focus:outline-none transition-all duration-300"
+                                       placeholder="Enter your full name">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-semibold mb-2">Email Address *</label>
+                                <input type="email" id="email" name="email" required 
+                                       class="form-input w-full px-4 py-3 rounded-xl focus:outline-none transition-all duration-300"
+                                       placeholder="your.email@example.com">
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="whatsapp" class="block text-sm font-semibold mb-2">WhatsApp Number *</label>
+                                <input type="tel" id="whatsapp" name="whatsapp" required 
+                                       class="form-input w-full px-4 py-3 rounded-xl focus:outline-none transition-all duration-300"
+                                       placeholder="+27 82 123 4567">
+                            </div>
+                            <div>
+                                <label for="location" class="block text-sm font-semibold mb-2">City/Location</label>
+                                <select id="location" name="location" 
+                                        class="form-input w-full px-4 py-3 rounded-xl focus:outline-none transition-all duration-300">
+                                    <option value="">Select your city</option>
+                                    <option value="cape-town">Cape Town</option>
+                                    <option value="johannesburg">Johannesburg</option>
+                                    <option value="durban">Durban</option>
+                                    <option value="pretoria">Pretoria</option>
+                                    <option value="port-elizabeth">Port Elizabeth</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Professional Information -->
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="situation" class="block text-sm font-semibold mb-2">Current Situation *</label>
+                                <select id="situation" name="situation" required 
+                                        class="form-input w-full px-4 py-3 rounded-xl focus:outline-none transition-all duration-300">
+                                    <option value="">Select your situation</option>
+                                    <option value="student">University Student</option>
+                                    <option value="graduate">Recent Graduate (0-2 years)</option>
+                                    <option value="employed">Currently Employed</option>
+                                    <option value="unemployed">Unemployed</option>
+                                    <option value="freelancing">Already Freelancing</option>
+                                    <option value="career-change">Seeking Career Change</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="income-goal" class="block text-sm font-semibold mb-2">Monthly Income Goal *</label>
+                                <select id="income-goal" name="income-goal" required 
+                                        class="form-input w-full px-4 py-3 rounded-xl focus:outline-none transition-all duration-300">
+                                    <option value="">What's your target?</option>
+                                    <option value="5-15k">R5,000 - R15,000</option>
+                                    <option value="15-30k">R15,000 - R30,000</option>
+                                    <option value="30-50k">R30,000 - R50,000</option>
+                                    <option value="50k+">R50,000+</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Skills -->
+                        <div>
+                            <label for="skills" class="block text-sm font-semibold mb-2">Primary Skills (select all that apply) *</label>
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" name="skills" value="graphic-design" class="rounded border-gray-600 text-blue-500 focus:ring-blue-500">
+                                    <span class="text-sm">Graphic Design</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" name="skills" value="content-writing" class="rounded border-gray-600 text-blue-500 focus:ring-blue-500">
+                                    <span class="text-sm">Content Writing</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" name="skills" value="web-development" class="rounded border-gray-600 text-blue-500 focus:ring-blue-500">
+                                    <span class="text-sm">Web Development</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" name="skills" value="social-media" class="rounded border-gray-600 text-blue-500 focus:ring-blue-500">
+                                    <span class="text-sm">Social Media</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" name="skills" value="video-editing" class="rounded border-gray-600 text-blue-500 focus:ring-blue-500">
+                                    <span class="text-sm">Video Editing</span>
+                                </label>
+                                <label class="flex items-center space-x-2 cursor-pointer">
+                                    <input type="checkbox" name="skills" value="virtual-assistant" class="rounded border-gray-600 text-blue-500 focus:ring-blue-500">
+                                    <span class="text-sm">Virtual Assistant</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="availability" class="block text-sm font-semibold mb-2">Weekly Availability *</label>
+                                <select id="availability" name="availability" required 
+                                        class="form-input w-full px-4 py-3 rounded-xl focus:outline-none transition-all duration-300">
+                                    <option value="">Select your availability</option>
+                                    <option value="5-10">5-10 hours (Side hustle)</option>
+                                    <option value="10-20">10-20 hours (Part-time)</option>
+                                    <option value="20-30">20-30 hours (Serious commitment)</option>
+                                    <option value="30+">30+ hours (Full-time ready)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="experience" class="block text-sm font-semibold mb-2">Freelancing Experience</label>
+                                <select id="experience" name="experience" 
+                                        class="form-input w-full px-4 py-3 rounded-xl focus:outline-none transition-all duration-300">
+                                    <option value="none">Complete beginner</option>
+                                    <option value="some">Some experience (1-10 projects)</option>
+                                    <option value="moderate">Moderate (10-50 projects)</option>
+                                    <option value="experienced">Very experienced (50+ projects)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="portfolio" class="block text-sm font-semibold mb-2">Portfolio/Work Samples</label>
+                            <input type="url" id="portfolio" name="portfolio" 
+                                   class="form-input w-full px-4 py-3 rounded-xl focus:outline-none transition-all duration-300"
+                                   placeholder="Link to your portfolio, Behance, LinkedIn, etc.">
+                        </div>
+
+                        <div>
+                            <label for="motivation" class="block text-sm font-semibold mb-2">Why Do You Want to Join iKlipa? *</label>
+                            <textarea id="motivation" name="motivation" rows="4" required 
+                                      class="form-input w-full px-4 py-3 rounded-xl focus:outline-none transition-all duration-300"
+                                      placeholder="Tell us about your goals, what you hope to achieve, and why you're ready to commit to this journey..."></textarea>
+                        </div>
+
+                        <!-- Agreement -->
+                        <div class="space-y-4">
+                            <label class="flex items-start space-x-3 cursor-pointer">
+                                <input type="checkbox" id="terms" name="terms" required class="mt-1 rounded border-gray-600 text-blue-500 focus:ring-blue-500">
+                                <span class="text-sm text-gray-300">I understand this is a free community focused on mutual success, and I'm committed to actively participating and supporting fellow members.</span>
+                            </label>
+                            <label class="flex items-start space-x-3 cursor-pointer">
+                                <input type="checkbox" id="updates" name="updates" checked class="mt-1 rounded border-gray-600 text-blue-500 focus:ring-blue-500">
+                                <span class="text-sm text-gray-300">Yes, I want to receive updates about opportunities, training sessions, and community events.</span>
+                            </label>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn-primary w-full py-4 px-8 rounded-xl font-bold text-lg text-white relative overflow-hidden transition-all duration-300" id="submit-btn">
+                            <span id="submit-text">🚀 Join iKlipa - Completely Free</span>
+                            <div id="submit-loading" class="hidden flex items-center justify-center space-x-2">
+                                <div class="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                                <span>Processing Application...</span>
+                            </div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Footer -->
+    <footer class="py-16 bg-gray-950 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8 mb-12">
+                <!-- Brand Section -->
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 gradient-primary rounded-xl flex items-center justify-center">
+                            <i data-feather="wifi" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div class="text-xl font-bold font-display">iKlipa</div>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed">Empowering South Africans to build sustainable freelancing careers and achieve true financial independence.</p>
+                    <div class="flex items-center space-x-2 text-sm">
+                        <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                        <span class="text-green-400 font-semibold">3,247+ members earning together</span>
+                    </div>
+                </div>
+                
+                <!-- Community Links -->
+                <div>
+                    <h4 class="font-semibold mb-4 text-white">Community</h4>
+                    <div class="space-y-3">
+                        <a href="#" class="block text-gray-400 hover:text-white transition-colors">WhatsApp Group</a>
+                        <a href="#" class="block text-gray-400 hover:text-white transition-colors">Discord Server</a>
+                        <a href="#" class="block text-gray-400 hover:text-white transition-colors">Weekly Training</a>
+                        <a href="#" class="block text-gray-400 hover:text-white transition-colors">Success Stories</a>
+                        <a href="#" class="block text-gray-400 hover:text-white transition-colors">Resource Library</a>
+                    </div>
+                </div>
+                
+                <!-- Support -->
+                <div>
+                    <h4 class="font-semibold mb-4 text-white">Get Support</h4>
+                    <div class="space-y-3">
+                        <div class="text-gray-400">
+                            <div class="font-medium">Email</div>
+                            <a href="mailto:hello@iklipa.com" class="text-blue-400 hover:text-blue-300">hello@iklipa.com</a>
+                        </div>
+                        <div class="text-gray-400">
+                            <div class="font-medium">WhatsApp</div>
+                            <a href="#" class="text-green-400 hover:text-green-300">+27 82 iKlipa</a>
+                        </div>
+                        <div class="text-gray-400">
+                            <div class="font-medium">Response Time</div>
+                            <span>Within 24 hours</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quick Stats -->
+                <div>
+                    <h4 class="font-semibold mb-4 text-white">Live Stats</h4>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Members</span>
+                            <span class="text-green-400 font-bold">3,247+</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Total Earned</span>
+                            <span class="text-blue-400 font-bold">R4.2M+</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Success Rate</span>
+                            <span class="text-purple-400 font-bold">98%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Avg Income</span>
+                            <span class="text-yellow-400 font-bold">R18.5k</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 iKlipa. All rights reserved.</p>
+                <p class="mt-2 text-sm">Building South Africa's freelance future, one success story at a time.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-gray-900/95 backdrop-blur-lg z-50 hidden">
+        <div class="container mx-auto px-4 py-20">
+            <div class="flex flex-col space-y-8 text-center">
+                <a href="#community" class="text-2xl hover:text-blue-400 transition-colors">Community</a>
+                <a href="#success" class="text-2xl hover:text-green-400 transition-colors">Success Stories</a>
+                <a href="#resources" class="text-2xl hover:text-purple-400 transition-colors">Resources</a>
+                <a href="#about" class="text-2xl hover:text-yellow-400 transition-colors">How It Works</a>
+                <button class="btn-primary px-8 py-4 rounded-full font-bold text-lg max-w-xs mx-auto">
+                    Join Free Today
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.119.1/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    <script>
+        // Enhanced Vanta.js background with better performance
+        let vantaEffect;
+        
+        function initVanta() {
+            if (window.VANTA && !vantaEffect) {
+                vantaEffect = VANTA.NET({
+                    el: "#vanta-bg",
+                    mouseControls: true,
+                    touchControls: true,
+                    gyroControls: false,
+                    minHeight: 200.00,
+                    minWidth: 200.00,
+                    scale: 1.00,
+                    scaleMobile: 1.00,
+                    color: 0x00D4AA,
+                    backgroundColor: 0x0D1117,
+                    points: window.innerWidth < 768 ? 8 : 15,
+                    maxDistance: window.innerWidth < 768 ? 18 : 25,
+                    spacing: window.innerWidth < 768 ? 12 : 18,
+                    showDots: true
+                });
+            }
+        }
+
+        // Enhanced AOS initialization with better performance
+        function initAOS() {
+            AOS.init({
+                duration: 1200,
+                once: true,
+                offset: 80,
+                easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
+                anchorPlacement: 'top-bottom'
+            });
+        }
+
+        // Enhanced Feather icons initialization
+        function initFeatherIcons() {
+            if (window.feather) {
+                feather.replace({ 'stroke-width': 2 });
+            }
+        }
+
+        // Advanced Counter Animations with better performance
+        function createCounterAnimation(elementId, start, end, duration, formatter = (val) => val.toLocaleString()) {
+            const element = document.getElementById(elementId);
+            if (!element) return;
+            
+            let startTime = null;
+            const startValue = start;
+            const endValue = end;
+            
+            function animate(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const progress = Math.min(timeElapsed / duration, 1);
+                
+                // Enhanced easing function
+                const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+                const currentValue = Math.floor(startValue + (endValue - startValue) * easeOutCubic);
+                
+                element.textContent = formatter(currentValue);
+                
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                }
+            }
+            
+            requestAnimationFrame(animate);
+        }
+
+        // Enhanced Scroll Progress with throttling
+        let scrollProgressTicking = false;
+        
+        function updateScrollProgress() {
+            const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = Math.min((winScroll / height) * 100, 100);
+            
+            const progressBar = document.getElementById('scroll-progress');
+            if (progressBar) {
+                progressBar.style.width = scrolled + '%';
+            }
+            
+            scrollProgressTicking = false;
+        }
+
+        function handleScroll() {
+            if (!scrollProgressTicking) {
+                requestAnimationFrame(updateScrollProgress);
+                scrollProgressTicking = true;
+            }
+        }
+
+        // Enhanced Form Handling with real-time validation
+        class FormHandler {
+            constructor(formId) {
+                this.form = document.getElementById(formId);
+                this.progressBar = document.getElementById('form-progress');
+                this.submitBtn = document.getElementById('submit-btn');
+                this.submitText = document.getElementById('submit-text');
+                this.submitLoading = document.getElementById('submit-loading');
+                this.successDiv = document.getElementById('form-success');
+                this.requiredInputs = this.form.querySelectorAll('input[required], select[required], textarea[required]');
+                
+                this.init();
+            }
+            
+            init() {
+                // Add event listeners for real-time validation
+                this.requiredInputs.forEach(input => {
+                    input.addEventListener('input', () => this.validateInput(input));
+                    input.addEventListener('change', () => this.validateInput(input));
+                    input.addEventListener('blur', () => this.validateInput(input));
+                    input.addEventListener('focus', () => this.clearValidationState(input));
+                });
+                
+                // Form submission handler
+                this.form.addEventListener('submit', (e) => this.handleSubmit(e));
+                
+                // Initial progress update
+                this.updateProgress();
+            }
+            
+            validateInput(input) {
+                const value = input.value.trim();
+                const isValid = this.isInputValid(input, value);
+                
+                if (value === '') {
+                    this.clearValidationState(input);
+                } else if (isValid) {
+                    this.setValidState(input);
+                } else {
+                    this.setInvalidState(input);
+                }
+                
+                this.updateProgress();
+            }
+            
+            isInputValid(input, value) {
+                if (input.type === 'email') {
+                    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+                }
+                if (input.type === 'tel') {
+                    return /^\+?[\d\s\-\(\)]+$/.test(value) && value.length >= 10;
+                }
+                if (input.tagName === 'TEXTAREA') {
+                    return value.length >= 20;
+                }
+                return value.length > 0;
+            }
+            
+            setValidState(input) {
+                input.classList.remove('invalid');
+                input.classList.add('valid');
+            }
+            
+            setInvalidState(input) {
+                input.classList.remove('valid');
+                input.classList.add('invalid');
+            }
+            
+            clearValidationState(input) {
+                input.classList.remove('valid', 'invalid');
+            }
+            
+            updateProgress() {
+                let validCount = 0;
+                
+                this.requiredInputs.forEach(input => {
+                    if (input.type === 'checkbox') {
+                        if (input.checked) validCount++;
+                    } else if (input.value.trim() !== '' && this.isInputValid(input, input.value.trim())) {
+                        validCount++;
+                    }
+                });
+                
+                const percentage = Math.min((validCount / this.requiredInputs.length) * 100, 100);
+                if (this.progressBar) {
+                    this.progressBar.style.width = percentage + '%';
+                }
+                
+                // Enable submit button when form is complete
+                const isFormComplete = percentage === 100;
+                this.submitBtn.disabled = !isFormComplete;
+                this.submitBtn.style.opacity = isFormComplete ? '1' : '0.7';
+            }
+            
+            async handleSubmit(e) {
+                e.preventDefault();
+                
+                // Show loading state
+                this.setLoadingState(true);
+                
+                try {
+                    // Simulate form processing with realistic delay
+                    await new Promise(resolve => setTimeout(resolve, 2500));
+                    
+                    // Show success state
+                    this.showSuccess();
+                    
+                    // Track submission (you'd replace this with actual analytics)
+                    this.trackFormSubmission();
+                    
+                } catch (error) {
+                    this.showError('Something went wrong. Please try again.');
+                } finally {
+                    this.setLoadingState(false);
+                }
+            }
+            
+            setLoadingState(loading) {
+                if (loading) {
+                    this.submitText.classList.add('hidden');
+                    this.submitLoading.classList.remove('hidden');
+                    this.submitBtn.disabled = true;
+                } else {
+                    this.submitText.classList.remove('hidden');
+                    this.submitLoading.classList.add('hidden');
+                    this.submitBtn.disabled = false;
+                }
+            }
+            
+            showSuccess() {
+                this.successDiv.classList.remove('hidden');
+                this.successDiv.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                });
+                
+                // Reset form after delay
+                setTimeout(() => {
+                    this.resetForm();
+                }, 4000);
+            }
+            
+            showError(message) {
+                this.showNotification(message, 'error');
+            }
+            
+            resetForm() {
+                this.form.reset();
+                this.requiredInputs.forEach(input => this.clearValidationState(input));
+                this.updateProgress();
+                this.successDiv.classList.add('hidden');
+            }
+            
+            trackFormSubmission() {
+                // Analytics tracking would go here
+                console.log('Form submitted successfully');
+            }
+            
+            showNotification(message, type = 'success') {
+                const notification = document.createElement('div');
+                notification.className = `notification ${type}`;
+                notification.innerHTML = `
+                    <div class="flex items-center space-x-2">
+                        <div class="w-2 h-2 rounded-full bg-current"></div>
+                        <span>${message}</span>
+                    </div>
+                `;
+                
+                document.body.appendChild(notification);
+                
+                setTimeout(() => notification.classList.add('show'), 100);
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    setTimeout(() => notification.remove(), 300);
+                }, 4000);
+            }
+        }
+
+        // Enhanced Mobile Menu Handler
+        class MobileMenuHandler {
+            constructor() {
+                this.menuBtn = document.getElementById('mobile-menu-btn');
+                this.menu = document.getElementById('mobile-menu');
+                this.isOpen = false;
+                
+                this.init();
+            }
+            
+            init() {
+                this.menuBtn.addEventListener('click', () => this.toggle());
+                this.menu.addEventListener('click', (e) => {
+                    if (e.target === this.menu) this.close();
+                });
+                
+                // Close on escape key
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && this.isOpen) this.close();
+                });
+                
+                // Close on resize
+                window.addEventListener('resize', () => {
+                    if (window.innerWidth >= 1024 && this.isOpen) this.close();
+                });
+            }
+            
+            toggle() {
+                this.isOpen ? this.close() : this.open();
+            }
+            
+            open() {
+                this.menu.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                this.isOpen = true;
+            }
+            
+            close() {
+                this.menu.classList.add('hidden');
+                document.body.style.overflow = '';
+                this.isOpen = false;
+            }
+        }
+
+        // Enhanced Navbar Handler with better scroll detection
+        class NavbarHandler {
+            constructor() {
+                this.navbar = document.getElementById('navbar');
+                this.lastScrollY = 0;
+                this.scrollThreshold = 100;
+                this.hideThreshold = 300;
+                
+                this.init();
+            }
+            
+            init() {
+                let scrollTicking = false;
+                
+                window.addEventListener('scroll', () => {
+                    if (!scrollTicking) {
+                        requestAnimationFrame(() => this.handleScroll());
+                        scrollTicking = true;
+                        setTimeout(() => { scrollTicking = false; }, 10);
+                    }
+                });
+            }
+            
+            handleScroll() {
+                const currentScrollY = window.scrollY;
+                
+                // Change navbar background based on scroll
+                if (currentScrollY > this.scrollThreshold) {
+                    this.navbar.style.background = 'rgba(13, 17, 23, 0.98)';
+                    this.navbar.style.borderBottom = '1px solid rgba(0, 212, 170, 0.3)';
+                    this.navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.3)';
+                } else {
+                    this.navbar.style.background = 'rgba(33, 38, 45, 0.8)';
+                    this.navbar.style.borderBottom = '1px solid rgba(255, 255, 255, 0.125)';
+                    this.navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+                }
+                
+                // Hide/show navbar on scroll
+                if (currentScrollY > this.lastScrollY && currentScrollY > this.hideThreshold) {
+                    this.navbar.style.transform = 'translateY(-100%)';
+                } else {
+                    this.navbar.style.transform = 'translateY(0)';
+                }
+                
+                this.lastScrollY = currentScrollY;
+            }
+        }
+
+        // Enhanced Success Stories Carousel
+        class SuccessCarousel {
+            constructor() {
+                this.carousel = document.getElementById('success-carousel');
+                this.currentStory = 0;
+                this.stories = [
+                    {
+                        name: "Thabo M.",
+                        role: "Graphic Designer",
+                        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+                        earnings: "+R34k",
+                        quote: "From unemployed to earning more than my corporate friends. Life-changing!"
+                    },
+                    {
+                        name: "Sarah K.",
+                        role: "Content Writer",
+                        image: "https://images.unsplash.com/photo-1494790108755-2616b25bd76b?w=150&h=150&fit=crop&crop=face",
+                        earnings: "+R47k",
+                        quote: "Started part-time, now earning more than my 9-5 job ever could!"
+                    },
+                    {
+                        name: "Michael B.",
+                        role: "Web Developer",
+                        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+                        earnings: "+R68k",
+                        quote: "Built my dream career from my laptop. Freedom at last!"
+                    },
+                    {
+                        name: "Nomsa P.",
+                        role: "Social Media Manager",
+                        image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+                        earnings: "+R29k",
+                        quote: "From corporate burnout to loving what I do every day!"
+                    }
+                ];
+                
+                this.init();
+            }
+            
+            init() {
+                this.updateCarousel();
+                setInterval(() => this.next(), 5000);
+            }
+            
+            next() {
+                this.currentStory = (this.currentStory + 1) % this.stories.length;
+                this.updateCarousel();
+            }
+            
+            updateCarousel() {
+                if (!this.carousel) return;
+                
+                const story = this.stories[this.currentStory];
+                
+                this.carousel.style.opacity = '0';
+                this.carousel.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    this.carousel.innerHTML = `
+                        <div class="success-story">
+                            <div class="flex items-center space-x-3 mb-4">
+                                <img src="${story.image}" class="w-14 h-14 rounded-full border-2 border-green-400 object-cover">
+                                <div class="flex-1">
+                                    <div class="font-semibold text-white">${story.name}</div>
+                                    <div class="text-sm text-gray-400">${story.role}</div>
+                                </div>
+                                <div class="bg-green-400 text-black px-3 py-1 rounded-full text-sm font-bold">${story.earnings}</div>
+                            </div>
+                            <p class="text-sm text-gray-300 leading-relaxed">"${story.quote}"</p>
+                        </div>
+                    `;
+                    
+                    this.carousel.style.opacity = '1';
+                    this.carousel.style.transform = 'translateY(0)';
+                }, 200);
+            }
+        }
+
+        // Enhanced Smooth Scrolling
+        function initSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const offsetTop = target.offsetTop - 80;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        document.getElementById('mobile-menu')?.classList.add('hidden');
+                    }
+                });
+            });
+        }
+
+        // Enhanced Intersection Observer for animations
+        function initAnimationObserver() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('slide-up');
+                            entry.target.style.animationDelay = `${index * 0.1}s`;
+                        }, index * 100);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all feature cards and animated elements
+            document.querySelectorAll('.feature-card, .testimonial').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Enhanced Parallax Effects
+        function initParallaxEffects() {
+            const parallaxElements = document.querySelectorAll('.parallax-element');
+            let parallaxTicking = false;
+            
+            function updateParallax() {
+                const scrollTop = window.pageYOffset;
+                
+                parallaxElements.forEach(element => {
+                    const speed = element.dataset.speed || 0.5;
+                    const yPos = -(scrollTop * speed);
+                    element.style.transform = `translateY(${yPos}px)`;
+                });
+                
+                parallaxTicking = false;
+            }
+            
+            window.addEventListener('scroll', () => {
+                if (!parallaxTicking) {
+                    requestAnimationFrame(updateParallax);
+                    parallaxTicking = true;
+                }
+            });
+        }
+
+        // Performance monitoring
+        function initPerformanceMonitoring() {
+            if ('performance' in window) {
+                window.addEventListener('load', () => {
+                    setTimeout(() => {
+                        const perfData = performance.getEntriesByType('navigation')[0];
+                        console.log('Page Load Performance:', {
+                            loadTime: perfData.loadEventEnd - perfData.loadEventStart,
+                            domContentLoaded: perfData.domContentLoadedEventEnd - perfData.domContentLoadedEventStart
+                        });
+                    }, 0);
+                });
+            }
+        }
+
+        // Initialize everything when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize core components
+            initFeatherIcons();
+            initAOS();
+            initSmoothScrolling();
+            initAnimationObserver();
+            initParallaxEffects();
+            initPerformanceMonitoring();
+            
+            // Initialize handlers
+            new FormHandler('application-form');
+            new MobileMenuHandler();
+            new NavbarHandler();
+            new SuccessCarousel();
+            
+            // Add scroll listener
+            window.addEventListener('scroll', handleScroll);
+        });
+
+        // Initialize Vanta after all scripts load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                initVanta();
+                
+                // Start counter animations
+                setTimeout(() => {
+                    createCounterAnimation('members-count', 0, 3247, 2500);
+                    createCounterAnimation('live-earnings', 0, 4234567, 3500, val => `R${val.toLocaleString()}`);
+                    createCounterAnimation('projects-count', 0, 1247, 2000);
+                }, 800);
+            }, 500);
+        });
+
+        // Cleanup on page unload
+        window.addEventListener('beforeunload', () => {
+            if (vantaEffect) {
+                vantaEffect.destroy();
+            }
+        });
+
+        // Handle resize events
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                if (vantaEffect) {
+                    vantaEffect.resize();
+                }
+            }, 250);
+        });
+    </script>
+</body>
+</html>
